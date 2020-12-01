@@ -8,16 +8,17 @@ class Form
     hide(){
         this.button.hide();
         this.input.hide();
+        this.greeting.hide();
     }
 
     display(){
         var title = createElement('h2');
         title.html("Car Racer Game");
-        title.position(170, 0);
+        title.position(displayWidth / 2 - 130, 0);
 
-        this.input.position(170, 160);
-
-        this.button.position(170, 200);
+        this.input.position(displayWidth / 2 - 120, displayHeight / 2 - 80);
+ 
+        this.button.position(displayWidth / 2 - 60, displayHeight / 2);
 
         this.button.mousePressed(() => {
             this.button.hide();
@@ -26,11 +27,11 @@ class Form
 
             playerCount += 1;
             player.index = playerCount;
-            player.update(name);
+            player.update();
             player.updateCount(playerCount);
 
             this.greeting.html("Hello " + player.name);
-            this.greeting.position(190, 160);
+            this.greeting.position(displayWidth / 2 - 40, displayHeight / 4);
         });
     }
 }
