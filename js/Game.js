@@ -29,10 +29,17 @@ class Game
             form.display();
 
             
-        car1 = createSprite(100, 200);
-        car2 = createSprite(300, 200);
-        car3 = createSprite(500, 200);
-        car4 = createSprite(700, 200);
+        car1 = createSprite(150, 200);
+        car1.addImage(car1Img);
+
+        car2 = createSprite(350, 200);
+        car2.addImage(car2Img);
+
+        car3 = createSprite(550, 200);
+        car3.addImage(car3Img);
+
+        car4 = createSprite(750, 200);
+        car4.addImage(car4Img);
 
         cars = [car1, car2, car3, car4];
 
@@ -46,36 +53,27 @@ class Game
     play(){
         form.hide();
 
-        car1.visible = true;
-        car2.visible = true;
-        car3.visible = true;
-        car4.visible = true;
-
-        /*textSize(30);
-        text("Game started", 120, 100);
-        */
-
         Player.getPlayerInfo();
 
         if(allPlayers !== undefined){
+            background(198, 135, 103);
+            image(trackImg, 0, -displayHeight * 4, displayWidth, displayHeight * 5);
+            
+            car1.visible = true;
+            car2.visible = true;
+            car3.visible = true;
+            car4.visible = true;
+ 
             var index = 0;
-            var x = 0;
-            var y;
 
-            //var displayPosition = 130;
+            var x = 220;
+            var y = 100;
 
             for(var plr in allPlayers){
                 index += 1;
 
-                /*if(plr === "player" + player.index){
-                    fill("red")
-                }
-
-                else{
-                    fill("black");
-                }*/
-                x += 200;
-                y = displayHeight - allPlayers[plr].distance;
+                x += 300;
+                y = displayHeight - allPlayers[plr].distance - 100;
 
                 cars[index - 1].x = x;
                 cars[index - 1].y = y;
@@ -86,10 +84,6 @@ class Game
                     camera.position.x = displayWidth / 2;
                     camera.position.y = cars[index - 1].y;
                 }
-            //displayPosition += 20;
-
-            /*textSize(15);
-            text(allPlayers[plr].name + ": " + allPlayers[plr].distance, 120, displayPosition);*/
             }
         }
 
@@ -97,5 +91,13 @@ class Game
             player.distance += 50;
             player.update();
         }
+
+        if(player.distance > 5100){
+            gameState = 2;
+        }
+    }
+
+    end(){
+        console.log("Game Ended");
     }
 }

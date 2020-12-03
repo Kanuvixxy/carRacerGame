@@ -14,7 +14,7 @@ class Form
     display(){
         var title = createElement('h2');
         title.html("Car Racer Game");
-        title.position(displayWidth / 2 - 130, 0);
+        title.position(displayWidth / 2 - 120, 0);
 
         this.input.position(displayWidth / 2 - 120, displayHeight / 2 - 80);
  
@@ -31,7 +31,7 @@ class Form
             player.updateCount(playerCount);
 
             this.greeting.html("Hello " + player.name);
-            this.greeting.position(displayWidth / 2 - 40, displayHeight / 4);
+            this.greeting.position(displayWidth / 2 - 90, displayHeight / 4);
         });
     }
 }
