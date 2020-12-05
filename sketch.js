@@ -7,13 +7,13 @@ var car1Img, car2Img, car3Img, car4Img;
 var groundImg, trackImg;
 
 function preload(){
-    car1Img = loadImage("images/car1.png");
-    car2Img = loadImage("images/car2.png");
-    car3Img = loadImage("images/car3.png");
-    car4Img = loadImage("images/car4.png");
+    car1Img = loadImage("carRacerGame/images/car1.png");
+    car2Img = loadImage("carRacerGame/images/car2.png");
+    car3Img = loadImage("carRacerGame/images/car3.png");
+    car4Img = loadImage("carRacerGame/images/car4.png");
 
-    groundImg = loadImage("images/ground.png");
-    trackImg = loadImage("images/track.jpg");
+    groundImg = loadImage("carRacerGame/images/ground.png");
+    trackImg = loadImage("carRacerGame/images/track.jpg");
 }
 
 function setup(){
