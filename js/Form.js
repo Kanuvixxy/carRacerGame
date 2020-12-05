@@ -4,6 +4,7 @@ class Form
         this.input = createInput("Name");
         this.button = createButton("PLAY");
         this.greeting = createElement('h3');
+        this.reset = createButton('RESET');
     }
     hide(){
         this.button.hide();
@@ -15,6 +16,8 @@ class Form
         var title = createElement('h2');
         title.html("Car Racer Game");
         title.position(displayWidth / 2 - 120, 0);
+
+        this.reset.position(displayWidth - 150, 20);
 
         this.input.position(displayWidth / 2 - 120, displayHeight / 2 - 80);
  
@@ -33,5 +36,10 @@ class Form
             this.greeting.html("Hello " + player.name);
             this.greeting.position(displayWidth / 2 - 90, displayHeight / 4);
         });
+
+        this.reset.mousePressed(() => {
+            player.updateCount(0);
+            game.update(0);
+         });
     }
 }

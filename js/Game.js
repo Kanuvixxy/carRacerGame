@@ -28,6 +28,7 @@ class Game
             form = new Form();
             form.display();
 
+            form.reset.hide();
             
         car1 = createSprite(150, 200);
         car1.addImage(car1Img);
@@ -52,6 +53,8 @@ class Game
 
     play(){
         form.hide();
+
+        form.reset.show();
 
         Player.getPlayerInfo();
 
@@ -79,6 +82,10 @@ class Game
                 cars[index - 1].y = y;
 
                 if(index === player.index){
+                    stroke(10);
+                    fill('blue');
+                    ellipse(x, y, 60, 60);
+
                     cars[index - 1].shapeColor = "red";
 
                     camera.position.x = displayWidth / 2;
@@ -99,5 +106,6 @@ class Game
 
     end(){
         console.log("Game Ended");
+        player.distance = 5100;
     }
 }
