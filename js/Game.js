@@ -58,6 +58,8 @@ class Game
 
         Player.getPlayerInfo();
 
+        player.getCarsAtEnd();
+
         if(allPlayers !== undefined){
             background(198, 135, 103);
             image(trackImg, 0, -displayHeight * 4, displayWidth, displayHeight * 5);
@@ -102,10 +104,16 @@ class Game
         if(player.distance > 5100){
             gameState = 2;
         }
+
+        if(player.distance === 5050){
+            player.rank += 1;
+            Player.updateCarsAtEnd(player.rank);
+        }
     }
 
     end(){
         console.log("Game Ended");
+        console.log(player.rank);
         player.distance = 5100;
     }
 }
